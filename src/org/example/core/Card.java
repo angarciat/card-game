@@ -1,9 +1,9 @@
 package org.example.core;
 
 public class Card {
-    public String suite;
+    public Suite suite;
     public int value;
-    public Card(int value, String suite) {
+    public Card(int value, Suite suite) {
         this.suite = suite;
         this.value = value;
     }
