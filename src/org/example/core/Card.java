@@ -1,8 +1,9 @@
 package org.example.core;
 
 public class Card {
-    public Suite suite;
-    public int value;
+    private Suite suite;
+    private int value;
+
     public Card(int value, Suite suite) {
         this.suite = suite;
         this.value = value;
@@ -14,5 +15,9 @@ public class Card {
                 "suite='" + suite + '\'' +
                 ", value=" + value +
                 '}';
+    }
+
+    public int getValue() {
+        return value;
     }
 }

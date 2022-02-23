@@ -3,8 +3,8 @@ package org.example.core;
 import java.util.ArrayList;
 
 public class Deck {
-    public ArrayList<Card> deck = new ArrayList<Card>();
-    public ArrayList<Card> delt = new ArrayList<Card>();
+    private ArrayList<Card> deck = new ArrayList<Card>();
+    private ArrayList<Card> delt = new ArrayList<Card>();
 
     public Deck() {
         for(int i = 1 ; i <= 13 ; i++){
