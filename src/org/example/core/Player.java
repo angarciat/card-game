@@ -1,19 +1,18 @@
 package org.example.core;
 
-import java.util.ArrayList;
 
 public class Player {
-    private ArrayList<ICard> hand;
+    private CardRepository hand;
 
     public Player() {
-        hand = new ArrayList<>();
+        hand = new CardRepository();
     }
 
     public void showHand() {
         System.out.println(hand);
     }
 
-    public ArrayList<ICard> getHand() {
+    public CardRepository getHand() {
         return hand;
     }
 }

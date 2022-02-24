@@ -3,14 +3,14 @@ import java.util.ArrayList;
 
 public class Game implements AutoCloseable {
     private Game() {
-        ArrayList<Card> deckCollection = new ArrayList<Card>();
+        ArrayList<ICard> deckCollection = new ArrayList<ICard>();
         for(int i = 1 ; i <= 13 ; i++){
             deckCollection.add(new Card(i,Suite.CLUBS));
             deckCollection.add(new Card(i,Suite.DIAMONDS));
             deckCollection.add(new Card(i,Suite.HEARTS));
             deckCollection.add(new Card(i,Suite.SPADE));
         }
-        deck = new Deck<Card>(deckCollection);
+        deck = new Deck<ICard>(deckCollection);
     }
 
     @Override
@@ -26,18 +26,20 @@ public class Game implements AutoCloseable {
     public void printWinner(Player p1, Player p2) {
         ICard c1 = null;
         ICard c2 = null;
-        for (ICard c : p1.getHand()) {
+        for (Iterator iter = p1.getHand().getIterator(); iter.hasNext();) {
+            ICard card = (ICard)iter.next();
             if (c1 == null) {
-                c1 = c;
-            } else if (c.getValue() > c1.getValue())  {
-                 c1 = c;
+                c1 = card;
+            } else if (card.getValue() > c1.getValue())  {
+                 c1 = card;
             }
         }
-        for (ICard c : p2.getHand()) {
+        for (Iterator iter = p2.getHand().getIterator(); iter.hasNext();) {
+            ICard card = (ICard)iter.next();
             if (c2 == null) {
-                c2 = c;
-            } else if (c.getValue() > c2.getValue())  {
-                c2 = c;
+                c2 = card;
+            } else if (card.getValue() > c2.getValue())  {
+                c2 = card;
             }
         }
         if (c1.getValue() > c2.getValue()) {
@@ -57,5 +59,5 @@ public class Game implements AutoCloseable {
     }
 
     private static Game instance;
-    private Deck<Card> deck;
+    private Deck<ICard> deck;
 }
