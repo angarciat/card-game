@@ -3,6 +3,7 @@ package org.example;
 import org.example.core.Game;
 import org.example.core.Player;
 
+// Please add test cases for the classes you create.
 public class App {
     public static void main(String[] args) {
         Player p1 = new Player();
