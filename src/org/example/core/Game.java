@@ -1,8 +1,16 @@
 package org.example.core;
+import java.util.ArrayList;
 
 public class Game implements AutoCloseable {
     private Game() {
-        deck = new Deck();
+        ArrayList<Card> deckCollection = new ArrayList<Card>();
+        for(int i = 1 ; i <= 13 ; i++){
+            deckCollection.add(new Card(i,Suite.CLUBS));
+            deckCollection.add(new Card(i,Suite.DIAMONDS));
+            deckCollection.add(new Card(i,Suite.HEARTS));
+            deckCollection.add(new Card(i,Suite.SPADE));
+        }
+        deck = new Deck<Card>(deckCollection);
     }
 
     @Override
@@ -16,16 +24,16 @@ public class Game implements AutoCloseable {
     }
 
     public void printWinner(Player p1, Player p2) {
-        Card c1 = null;
-        Card c2 = null;
-        for (Card c : p1.getHand()) {
+        ICard c1 = null;
+        ICard c2 = null;
+        for (ICard c : p1.getHand()) {
             if (c1 == null) {
                 c1 = c;
             } else if (c.getValue() > c1.getValue())  {
                  c1 = c;
             }
         }
-        for (Card c : p2.getHand()) {
+        for (ICard c : p2.getHand()) {
             if (c2 == null) {
                 c2 = c;
             } else if (c.getValue() > c2.getValue())  {
@@ -49,5 +57,5 @@ public class Game implements AutoCloseable {
     }
 
     private static Game instance;
-    private Deck deck;
+    private Deck<Card> deck;
 }

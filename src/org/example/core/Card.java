@@ -1,6 +1,6 @@
 package org.example.core;
 
-public class Card {
+public class Card implements ICard {
     private Suite suite;
     private int value;
 

@@ -3,7 +3,7 @@ package org.example.core;
 import java.util.ArrayList;
 
 public class Player {
-    private ArrayList<Card> hand;
+    private ArrayList<ICard> hand;
 
     public Player() {
         hand = new ArrayList<>();
@@ -13,7 +13,7 @@ public class Player {
         System.out.println(hand);
     }
 
-    public ArrayList<Card> getHand() {
+    public ArrayList<ICard> getHand() {
         return hand;
     }
 }
