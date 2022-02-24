@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Deck <T extends ICard> {
     private ArrayList<T> deck = new ArrayList<T>();
+
+    // Typo in delt? dealt?
     private ArrayList<T> delt = new ArrayList<T>();
 
     public Deck(ArrayList<T> deck) {

@@ -26,6 +26,10 @@ public class Game implements AutoCloseable {
     public void printWinner(Player p1, Player p2) {
         ICard c1 = null;
         ICard c2 = null;
+
+        // These two loops pretty much do the same thing. 
+        // Consider refactoring them to a method. 
+        // Use a descriptive name for that new metod.
         for (Iterator iter = p1.getHand().getIterator(); iter.hasNext();) {
             ICard card = (ICard)iter.next();
             if (c1 == null) {
@@ -59,5 +63,5 @@ public class Game implements AutoCloseable {
     }
 
     private static Game instance;
-    private Deck<ICard> deck;
+    private Deck<ICard> deck; // Consider using dependency injection for this.
 }
